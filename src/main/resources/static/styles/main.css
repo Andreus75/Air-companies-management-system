@@ -1,0 +1,8 @@
+.airplane {
+    display: flex;
+    background: grey;
+}
+
+.add {
+    background: #318010;
+}
