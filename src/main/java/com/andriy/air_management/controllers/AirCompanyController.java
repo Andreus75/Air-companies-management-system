@@ -17,7 +17,8 @@ public class AirCompanyController {
     public AirCompanyController(AirCompanyService airCompanyService) {
         this.airCompanyService = airCompanyService;
     }
-// Save new air company
+
+    // Save new air company
     @PostMapping("/addAirCompany")
     public String addAirCompany(AirCompany airCompany) {
         airCompanyService.saveAirCompany(airCompany);
@@ -31,6 +32,7 @@ public class AirCompanyController {
         return "allAirCompanies";
     }
 
+    //   delete AirCompany
     @PostMapping("/allAirCompanies/{idCompany}")
     public String deleteAirCompany (@PathVariable(value = "idCompany") int idCompany) {
         airCompanyService.deleteAirCompanyById(idCompany);

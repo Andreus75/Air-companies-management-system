@@ -19,18 +19,21 @@ public class FlightController {
     }
 
 
+    //   add new Flight
     @PostMapping("/addAFlight")
     public String addAFlight(Flight flight) {
         flightService.saveFlight(flight);
         return "redirect:/";
     }
 
+    //   find all flight and output on page
     @GetMapping("/allFlights")
     public String findAllFlight (Model model) {
         model.addAttribute("flights", flightService.findAllFlight());
         return "allFlights";
     }
 
+    //  delete flight
     @PostMapping("/allFlights/{idFlight}")
     public String deleteFlight (@PathVariable(value = "idFlight") int idFlight) {
         flightService.deleteFlightById(idFlight);
