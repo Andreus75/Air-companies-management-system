@@ -35,7 +35,7 @@ public class AirplaneServiceImpl implements AirplaneService {
     }
 
     @Override
-    public void deleteAirCompanyById(int idAirplane) {
+    public void deleteAirplaneById(int idAirplane) {
         airplaneDao.deleteById(idAirplane);
     }
 }

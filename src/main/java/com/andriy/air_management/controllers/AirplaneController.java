@@ -4,9 +4,7 @@ import com.andriy.air_management.entity.Airplane;
 import com.andriy.air_management.service.airplaneService.AirplaneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -32,9 +30,14 @@ public class AirplaneController {
         return "allAirplane";
     }
 
-    @DeleteMapping("/deleteAirplane")
-    public String deleteAirplane (Airplane airplane) {
-        airplaneService.deleteAirCompanyById(airplane.getIdAirplane());
+
+
+    @DeleteMapping("/allAirplane/deleteAirplane/{idAirplane}")
+    public String deleteAirplane(@PathVariable(value = "idAirplane") int idAirplane) {
+        System.out.println(idAirplane);
+        System.out.println("delete--------------------------------");
+        airplaneService.deleteAirplaneById(idAirplane);
+
         return "redirect:/allAirplane";
     }
 }

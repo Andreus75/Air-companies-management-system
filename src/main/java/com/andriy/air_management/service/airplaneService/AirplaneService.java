@@ -9,5 +9,5 @@ public interface AirplaneService {
     void saveAirplane(Airplane airplane);
     Airplane findAirCompanyById(int idAirplane);
     List<Airplane> findAllAirplane();
-    void deleteAirCompanyById(int idAirplane);
+    void deleteAirplaneById(int idAirplane);
 }

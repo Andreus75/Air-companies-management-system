@@ -10,21 +10,44 @@
 <body>
 <p>Air management</p>
 <div class="airplane">
-    <form class="form_all" action="allAirplane" method="get" enctype="multipart/form-data">
-        <div class="findAllAirplanes">
-            <h2>List Airplanes</h2>
-            <c:forEach items="${airplanes}" var="airplane">
-                <form class="deleteAirplane" action="deleteAirplane" method="delete" enctype="multipart/form-data">
+    <div>
+
+            <div class="findAllAirplanes">
+                <h2>List Airplanes</h2>
+                <c:forEach items="${airplanes}" var="airplane">
+                <form class="formDeleteAirplane" action="allAirplane/deleteAirplane/{idAirplane}" method="delete">
                     <ul class="airplaneInfo">
-                        <li>${airplane.idAirplane}. ${airplane.name}  ${airplane.factorySerialNumber} ${airplane.numberOfFlight} ${airplane.flightDistance} ${airplane.fuelCapacity} ${airplane.type} ${airplane.createdAt}
+                        <li id="jsonAirplane">${airplane.idAirplane}. ${airplane.name}  ${airplane.factorySerialNumber} ${airplane.numberOfFlight} ${airplane.flightDistance} ${airplane.fuelCapacity} ${airplane.type} ${airplane.createdAt}
                         </li>
-                        <button name="deleteAirplanes" class="button">Delete airplanes</button>
+                        <a href="/allAirplane/deleteAirplane/${airplane.idAirplane}">delete</a>
                     </ul>
                 </form>
+                </c:forEach>
 
-            </c:forEach>
-        </div>
-    </form>
+
+<%--                    <input id="idAirplane" type="number" name="idAirplane" placeholder="idAirplane">--%>
+<%--                        <button class="delete">Delete airplanes</button>--%>
+
+            </div>
+
+    </div>
+<%--<script>--%>
+<%--    $('formDeleteAirplane').onclick(function (e) {--%>
+<%--        e.preventDefault();--%>
+<%--        let frm = $("#jsonAirplane");--%>
+<%--        console.log(frm);--%>
+<%--        let dat = frm.serialize();--%>
+<%--        $.ajax({--%>
+<%--            type: 'DELETE',--%>
+<%--            url: $('#formDeleteAirplane').attr('action'),--%>
+<%--            data: dat,--%>
+<%--            contentType: 'application/json'--%>
+<%--            success: function (hxr) {--%>
+<%--                alert("Success: "  + hxr);--%>
+<%--            }--%>
+<%--        })--%>
+<%--    })--%>
+<%--</script>--%>
 </div>
 </body>
 </html>
