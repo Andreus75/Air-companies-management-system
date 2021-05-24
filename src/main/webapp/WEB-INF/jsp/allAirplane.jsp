@@ -15,7 +15,8 @@
             <div class="findAllAirplanes">
                 <h2>List Airplanes</h2>
                 <c:forEach items="${airplanes}" var="airplane">
-                <form class="formDeleteAirplane" action="allAirplane/deleteAirplane/{idAirplane}" method="delete">
+                <form class="formDeleteAirplane" action="allAirplane/deleteAirplane/{idAirplane}" method="post">
+<%--                <form class="formDeleteAirplane" action="allAirplane" method="post">--%>
                     <ul class="airplaneInfo">
                         <li id="jsonAirplane">${airplane.idAirplane}. ${airplane.name}  ${airplane.factorySerialNumber} ${airplane.numberOfFlight} ${airplane.flightDistance} ${airplane.fuelCapacity} ${airplane.type} ${airplane.createdAt}
                         </li>

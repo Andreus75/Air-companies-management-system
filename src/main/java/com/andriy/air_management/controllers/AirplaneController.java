@@ -32,12 +32,20 @@ public class AirplaneController {
 
 
 
+//    @DeleteMapping("/allAirplane/deleteAirplane/{idAirplane}")
+//    public String deleteAirplane(@PathVariable(value = "idAirplane") int idAirplane) {
+//        System.out.println(idAirplane);
+//        System.out.println("delete--------------------------------");
+//        airplaneService.deleteAirplaneById(idAirplane);
+//
+//        return "redirect:/allAirplane";
+//    }
+
     @DeleteMapping("/allAirplane/deleteAirplane/{idAirplane}")
     public String deleteAirplane(@PathVariable(value = "idAirplane") int idAirplane) {
-        System.out.println(idAirplane);
-        System.out.println("delete--------------------------------");
+        System.out.println("delete-------------------");
         airplaneService.deleteAirplaneById(idAirplane);
-
         return "redirect:/allAirplane";
     }
+
 }
