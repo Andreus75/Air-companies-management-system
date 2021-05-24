@@ -87,7 +87,7 @@
         <br/><br/>
         <button class="add">addFlight</button>
     </form>
-    <form class="form_all" action="allFlight" method="get" enctype="multipart/form-data">
+    <form class="form_all" action="allFlights" method="get" enctype="multipart/form-data">
         <button class="all">AllFlight</button>
     </form>
 </div>

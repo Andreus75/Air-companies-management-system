@@ -6,6 +6,7 @@ import com.andriy.air_management.service.flightService.FlightService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -24,9 +25,15 @@ public class FlightController {
         return "redirect:/";
     }
 
-    @GetMapping("/allFlight")
+    @GetMapping("/allFlights")
     public String findAllFlight (Model model) {
         model.addAttribute("flights", flightService.findAllFlight());
         return "allFlights";
+    }
+
+    @PostMapping("/allFlights/{idFlight}")
+    public String deleteFlight (@PathVariable(value = "idFlight") int idFlight) {
+        flightService.deleteFlightById(idFlight);
+        return "redirect:/allFlights";
     }
 }

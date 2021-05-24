@@ -14,11 +14,14 @@
         <div class="findAllAirCompany">
             <h2>List AirCompany</h2>
             <c:forEach items="${airCompanies}" var="airCompany">
-                <ul class="airCompanyInfo">
-                    <li>${airCompany.idCompany}. ${airCompany.nameCompany}  ${airCompany.companyType} ${airCompany.foundedAt}
-                    </li>
-                    <button name="deleteAirCompany" class="button">Delete airCompany</button>
-                </ul>
+                <form class="formDeleteAirCompany" action="allAirCompanies/${airCompany.idCompany}" method="post">
+                    <ul class="airCompanyInfo">
+                        <li>${airCompany.idCompany}. ${airCompany.nameCompany}  ${airCompany.companyType} ${airCompany.foundedAt}
+                        </li>
+                        <button name="deleteAirCompany" class="button">Delete airCompany</button>
+                    </ul>
+                </form>
+
             </c:forEach>
         </div>
     </form>

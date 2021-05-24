@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -28,5 +29,11 @@ public class AirCompanyController {
     public String findAllAirCompany (Model model) {
         model.addAttribute("airCompanies", airCompanyService.findAllAirCompany());
         return "allAirCompanies";
+    }
+
+    @PostMapping("/allAirCompanies/{idCompany}")
+    public String deleteAirCompany (@PathVariable(value = "idCompany") int idCompany) {
+        airCompanyService.deleteAirCompanyById(idCompany);
+        return "redirect:/allAirCompanies";
     }
 }
